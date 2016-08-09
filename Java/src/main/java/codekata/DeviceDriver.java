@@ -1,20 +1,21 @@
 package codekata;
 
-/**
- * This class is used by the operating system to interact with the hardware 'FlashMemoryDevice'.
- */
 public class DeviceDriver {
 
-    public DeviceDriver(FlashMemoryDevice hardware) {
-        // TODO: implement this method
+    private final DataReader reader;
+    private final DataWriter writer;
+
+    public DeviceDriver(DataReader reader, DataWriter writer) {
+
+        this.reader = reader;
+        this.writer = writer;
     }
 
-    public byte read(long address) {
-        // TODO: implement this method
-        return -1;
+    public byte read() {
+        return reader.read();
     }
 
-    public void write(long address, byte data) {
-        // TODO: implement this method
+    public void write(byte data) {
+        this.writer.write(data);
     }
 }
